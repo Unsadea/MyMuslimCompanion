@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MyMuslimCompanion – Home</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lateef:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <span class="brand-icon">☽</span>
+      <span class="brand-name">MyMuslimCompanion</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="quran.html">Qur'an</a></li>
+      <li><a href="mosque.html">Mosque Finder</a></li>
+      <li><a href="prayer.html">Prayer Times</a></li>
+      <li><a href="chatbot.html">AI Chatbot</a></li>
+    </ul>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+      <span class="theme-icon">🌙</span>
+    </button>
+    <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="quran.html">Qur'an</a>
+    <a href="mosque.html">Mosque Finder</a>
+    <a href="prayer.html">Prayer Times</a>
+    <a href="chatbot.html">AI Chatbot</a>
+  </div>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-arabic">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</p>
+      <h1 class="hero-title">Your Islamic<br/><span class="highlight">Companion</span></h1>
+      <p class="hero-subtitle">Qur'an, Prayer Times, Mosque Finder & Islamic AI — all in one place.</p>
+      <a href="quran.html" class="btn-primary">Get Started</a>
+    </div>
+    <div class="hero-decoration">
+      <div class="geo-circle"></div>
+      <div class="geo-circle small"></div>
+    </div>
+  </section>
+
+  <!-- FEATURES SECTION -->
+  <section class="features">
+    <h2 class="section-title">Everything You Need</h2>
+    <div class="features-grid">
+      <a href="quran.html" class="feature-card">
+        <div class="feature-icon">📖</div>
+        <h3>Qur'an</h3>
+        <p>Read the full Qur'an with Arabic text and English translation. Search by Surah or keyword.</p>
+      </a>
+      <a href="mosque.html" class="feature-card">
+        <div class="feature-icon">🕌</div>
+        <h3>Mosque Finder</h3>
+        <p>Find nearby mosques using your GPS location with an interactive map.</p>
+      </a>
+      <a href="prayer.html" class="feature-card">
+        <div class="feature-icon">🕐</div>
+        <h3>Prayer Times</h3>
+        <p>Accurate daily prayer times based on your current location.</p>
+      </a>
+      <a href="chatbot.html" class="feature-card">
+        <div class="feature-icon">🤖</div>
+        <h3>Islamic AI</h3>
+        <p>Ask any Islamic question and get answers powered by Google Gemini AI.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>MyMuslimCompanion &copy; 2026 — Made with ♥ by Izz Ismail</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
