@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MyMuslimCompanion – Qur'an</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/quran.css" />
   <link href="https://fonts.googleapis.com/css2?family=Lateef:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 </head>
 <body>
@@ -40,10 +41,47 @@
     <p>Read the full Qur'an with Arabic text and English translation</p>
   </div>
 
-  <div class="coming-soon">
-    <div class="big-icon">📖</div>
-    <h2>Qur'an Module – Coming Soon</h2>
-    <p>This page will be built in Sprint 1 (Week 3–4)</p>
+  <div class="quran-container">
+
+    <!-- SURAH LIST VIEW -->
+    <div id="surahListView">
+      <div class="quran-search-bar">
+        <input type="text" id="searchInput" placeholder="🔍  Search Surah by name..." oninput="filterSurahs()" />
+      </div>
+      <div class="surah-grid" id="surahGrid">
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+          <p>Loading Surahs...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- SURAH READER VIEW -->
+    <div id="surahReaderView" style="display:none;">
+      <div class="reader-header">
+        <button class="back-btn" onclick="showSurahList()">← Back to Surah List</button>
+        <div class="reader-title">
+          <h2 id="readerSurahName"></h2>
+          <span id="readerSurahInfo"></span>
+        </div>
+        <div class="reader-nav">
+          <button onclick="prevSurah()" id="prevBtn">◀ Prev</button>
+          <button onclick="nextSurah()" id="nextBtn">Next ▶</button>
+        </div>
+      </div>
+
+      <div class="bismillah" id="bismillahDisplay">
+        بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
+      </div>
+
+      <div id="versesContainer">
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+          <p>Loading verses...</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <footer class="footer">
@@ -51,5 +89,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/quran.js"></script>
 </body>
 </html>
