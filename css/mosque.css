@@ -1,0 +1,215 @@
+/* ===========================
+   MOSQUE FINDER STYLES
+   =========================== */
+
+.mosque-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1.5rem 4rem;
+}
+
+/* ===========================
+   STATUS BAR
+   =========================== */
+.status-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.status-bar.loading {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.status-bar.success {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.status-bar.error {
+  border-color: #e53e3e;
+  color: #e53e3e;
+}
+
+/* ===========================
+   LOCATE BUTTON
+   =========================== */
+.locate-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.locate-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 15px rgba(27,107,58,0.3);
+}
+
+.locate-btn:hover {
+  background: var(--primary-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(27,107,58,0.4);
+}
+
+.locate-btn:disabled {
+  background: var(--border);
+  color: var(--text-muted);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ===========================
+   MAP + LIST LAYOUT
+   =========================== */
+.map-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* ===========================
+   MAP
+   =========================== */
+.map-wrapper {
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+#map {
+  height: 520px;
+  width: 100%;
+  z-index: 1;
+}
+
+/* ===========================
+   MOSQUE LIST PANEL
+   =========================== */
+.mosque-list-panel {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  max-height: 520px;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-title {
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 800;
+  color: var(--text);
+  border-bottom: 2px solid var(--border);
+  background: var(--bg);
+}
+
+#mosqueList {
+  overflow-y: auto;
+  flex: 1;
+}
+
+.list-placeholder {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+}
+
+/* ===========================
+   MOSQUE LIST ITEM
+   =========================== */
+.mosque-item {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.mosque-item:hover {
+  background: rgba(27,107,58,0.06);
+}
+
+.mosque-item:last-child {
+  border-bottom: none;
+}
+
+.mosque-item-name {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-bottom: 0.3rem;
+}
+
+.mosque-item-address {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.mosque-item-distance {
+  display: inline-block;
+  margin-top: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(27,107,58,0.1);
+  color: var(--primary);
+  padding: 0.15rem 0.6rem;
+  border-radius: 50px;
+}
+
+/* ===========================
+   LEAFLET POPUP OVERRIDE
+   =========================== */
+.leaflet-popup-content-wrapper {
+  border-radius: 12px !important;
+  font-family: 'Nunito', sans-serif !important;
+}
+
+.popup-name {
+  font-weight: 800;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+  color: #1b6b3a;
+}
+
+.popup-address {
+  font-size: 0.82rem;
+  color: #6b7280;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 768px) {
+  .map-layout {
+    grid-template-columns: 1fr;
+  }
+
+  #map {
+    height: 350px;
+  }
+
+  .mosque-list-panel {
+    max-height: 300px;
+  }
+}

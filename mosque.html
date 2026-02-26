@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MyMuslimCompanion – Mosque Finder</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/mosque.css" />
   <link href="https://fonts.googleapis.com/css2?family=Lateef:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 </head>
 <body>
 
@@ -40,16 +42,42 @@
     <p>Find nearby mosques using your GPS location</p>
   </div>
 
-  <div class="coming-soon">
-    <div class="big-icon">🕌</div>
-    <h2>Mosque Finder – Coming Soon</h2>
-    <p>This page will be built in Sprint 2 (Week 5–6)</p>
+  <div class="mosque-container">
+
+    <!-- STATUS BAR -->
+    <div class="status-bar" id="statusBar">
+      <span class="status-icon">📍</span>
+      <span id="statusText">Click the button below to find mosques near you</span>
+    </div>
+
+    <!-- LOCATE BUTTON -->
+    <div class="locate-section">
+      <button class="locate-btn" id="locateBtn" onclick="findMosques()">
+        📍 Find Mosques Near Me
+      </button>
+    </div>
+
+    <!-- MAP + LIST LAYOUT -->
+    <div class="map-layout" id="mapLayout" style="display:none;">
+      <div class="map-wrapper">
+        <div id="map"></div>
+      </div>
+      <div class="mosque-list-panel">
+        <h3 class="panel-title">Nearby Mosques</h3>
+        <div id="mosqueList">
+          <p class="list-placeholder">Mosques will appear here...</p>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <footer class="footer">
     <p>MyMuslimCompanion &copy; 2026 — Made with ♥ by Izz Ismail</p>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="js/main.js"></script>
+  <script src="js/mosque.js"></script>
 </body>
 </html>
