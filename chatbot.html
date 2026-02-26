@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MyMuslimCompanion – AI Chatbot</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/chatbot.css" />
   <link href="https://fonts.googleapis.com/css2?family=Lateef:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 </head>
 <body>
@@ -40,10 +41,42 @@
     <p>Ask any Islamic question powered by Google Gemini</p>
   </div>
 
-  <div class="coming-soon">
-    <div class="big-icon">🤖</div>
-    <h2>AI Chatbot – Coming Soon</h2>
-    <p>This page will be built in Sprint 3 (Week 7–8)</p>
+  <div class="chatbot-container">
+
+    <!-- SUGGESTED QUESTIONS -->
+    <div class="suggested-section">
+      <p class="suggested-label">💡 Try asking:</p>
+      <div class="suggested-grid">
+        <button class="suggested-btn" onclick="askSuggested(this)">What are the 5 pillars of Islam?</button>
+        <button class="suggested-btn" onclick="askSuggested(this)">How do I perform Wudu?</button>
+        <button class="suggested-btn" onclick="askSuggested(this)">What is the significance of Ramadan?</button>
+        <button class="suggested-btn" onclick="askSuggested(this)">What does Surah Al-Fatiha mean?</button>
+        <button class="suggested-btn" onclick="askSuggested(this)">How many times do Muslims pray daily?</button>
+        <button class="suggested-btn" onclick="askSuggested(this)">What is the meaning of Zakat?</button>
+        <button class="suggested-btn" onclick="askSuggested(this)">Who was Prophet Muhammad (PBUH)?</button>
+        <button class="suggested-btn" onclick="askSuggested(this)">What is Hajj and when is it performed?</button>
+      </div>
+    </div>
+
+    <!-- CHAT WINDOW -->
+    <div class="chat-window" id="chatWindow">
+      <div class="chat-welcome">
+        <div class="welcome-icon">🤖</div>
+        <p>As-salamu alaykum! I am your Islamic AI assistant.<br/>Ask me anything about Islam.</p>
+      </div>
+    </div>
+
+    <!-- INPUT BAR -->
+    <div class="chat-input-bar">
+      <input
+        type="text"
+        id="userInput"
+        placeholder="Ask an Islamic question..."
+        onkeydown="if(event.key==='Enter') sendMessage()"
+      />
+      <button class="send-btn" onclick="sendMessage()" id="sendBtn">Send ➤</button>
+    </div>
+
   </div>
 
   <footer class="footer">
@@ -51,5 +84,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/chatbot.js"></script>
 </body>
 </html>
