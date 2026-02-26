@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>MyMuslimCompanion – Prayer Times</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/prayer.css" />
   <link href="https://fonts.googleapis.com/css2?family=Lateef:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
 </head>
 <body>
@@ -40,10 +41,82 @@
     <p>Accurate daily prayer times based on your location</p>
   </div>
 
-  <div class="coming-soon">
-    <div class="big-icon">🕐</div>
-    <h2>Prayer Times – Coming Soon</h2>
-    <p>This page will be built in Sprint 2 (Week 5–6)</p>
+  <div class="prayer-container">
+
+    <!-- LOCATION INFO BAR -->
+    <div class="location-bar" id="locationBar">
+      <span>📍</span>
+      <span id="locationText">Detecting your location...</span>
+      <span id="dateText"></span>
+    </div>
+
+    <!-- LOADING STATE -->
+    <div class="loading-spinner" id="loadingSpinner">
+      <div class="spinner"></div>
+      <p>Loading prayer times...</p>
+    </div>
+
+    <!-- ERROR STATE -->
+    <div class="error-box" id="errorBox" style="display:none;">
+      <p id="errorText">❌ Could not load prayer times.</p>
+      <button onclick="loadPrayerTimes()">Try Again</button>
+    </div>
+
+    <!-- PRAYER CARDS -->
+    <div class="prayer-grid" id="prayerGrid" style="display:none;">
+
+      <div class="prayer-card" id="card-Fajr">
+        <div class="prayer-icon">🌙</div>
+        <div class="prayer-name">Fajr</div>
+        <div class="prayer-arabic">الفجر</div>
+        <div class="prayer-time" id="time-Fajr">--:--</div>
+      </div>
+
+      <div class="prayer-card" id="card-Sunrise">
+        <div class="prayer-icon">🌅</div>
+        <div class="prayer-name">Sunrise</div>
+        <div class="prayer-arabic">الشروق</div>
+        <div class="prayer-time" id="time-Sunrise">--:--</div>
+      </div>
+
+      <div class="prayer-card" id="card-Dhuhr">
+        <div class="prayer-icon">☀️</div>
+        <div class="prayer-name">Dhuhr</div>
+        <div class="prayer-arabic">الظهر</div>
+        <div class="prayer-time" id="time-Dhuhr">--:--</div>
+      </div>
+
+      <div class="prayer-card" id="card-Asr">
+        <div class="prayer-icon">🌤️</div>
+        <div class="prayer-name">Asr</div>
+        <div class="prayer-arabic">العصر</div>
+        <div class="prayer-time" id="time-Asr">--:--</div>
+      </div>
+
+      <div class="prayer-card" id="card-Maghrib">
+        <div class="prayer-icon">🌇</div>
+        <div class="prayer-name">Maghrib</div>
+        <div class="prayer-arabic">المغرب</div>
+        <div class="prayer-time" id="time-Maghrib">--:--</div>
+      </div>
+
+      <div class="prayer-card" id="card-Isha">
+        <div class="prayer-icon">🌃</div>
+        <div class="prayer-name">Isha</div>
+        <div class="prayer-arabic">العشاء</div>
+        <div class="prayer-time" id="time-Isha">--:--</div>
+      </div>
+
+    </div>
+
+    <!-- NEXT PRAYER BANNER -->
+    <div class="next-prayer-banner" id="nextPrayerBanner" style="display:none;">
+      <div class="next-label">Next Prayer</div>
+      <div class="next-name" id="nextPrayerName">—</div>
+      <div class="next-time" id="nextPrayerTime">—</div>
+      <div class="next-countdown" id="nextCountdown">calculating...</div>
+    </div>
+
   </div>
 
   <footer class="footer">
@@ -51,5 +124,6 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/prayer.js"></script>
 </body>
 </html>
