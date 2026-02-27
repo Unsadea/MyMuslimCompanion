@@ -4,7 +4,7 @@
 // ===========================
 
 // ⚠️ IMPORTANT: Paste your Groq API key below
-const GROQ_API_KEY = 'PASTE_YOUR_GROQ_KEY_HERE';
+const GROQ_API_KEY = 'MY GROQ API KEY';
 
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
 

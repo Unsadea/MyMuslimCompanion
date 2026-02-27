@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MyMuslimCompanion – Hadith</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/hadith.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Lateef:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">
+      <a href="/MyMuslimCompanion/index.html" class="nav-brand">
+        <span class="brand-icon">☽</span>
+        <span class="brand-name">MyMuslimCompanion</span>
+      </a>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/MyMuslimCompanion/index.html">Home</a></li>
+      <li><a href="/MyMuslimCompanion/quran.html">Qur'an</a></li>
+      <li><a href="/MyMuslimCompanion/hadith.html" class="active">Hadith</a></li>
+      <li><a href="/MyMuslimCompanion/mosque.html">Mosque Finder</a></li>
+      <li><a href="/MyMuslimCompanion/prayer.html">Prayer Times</a></li>
+      <li><a href="/MyMuslimCompanion/chatbot.html">AI Chatbot</a></li>
+    </ul>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+      <span class="theme-icon">🌙</span>
+    </button>
+    <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/MyMuslimCompanion/index.html">Home</a>
+    <a href="/MyMuslimCompanion/quran.html">Qur'an</a>
+    <a href="/MyMuslimCompanion/hadith.html">Hadith</a>
+    <a href="/MyMuslimCompanion/mosque.html">Mosque Finder</a>
+    <a href="/MyMuslimCompanion/prayer.html">Prayer Times</a>
+    <a href="/MyMuslimCompanion/chatbot.html">AI Chatbot</a>
+  </div>
+
+  <div class="page-header">
+    <h1>📜 Hadith</h1>
+    <p>Explore authentic sayings and traditions of Prophet Muhammad ﷺ</p>
+  </div>
+
+  <div class="hadith-container">
+
+    <!-- RANDOM HADITH OF THE DAY -->
+    <div class="hadith-of-day" id="hadithOfDay">
+      <div class="hod-header">
+        <span class="hod-label">✨ Hadith of the Day</span>
+        <button class="refresh-btn" onclick="loadRandomHadith()" title="Get another Hadith">↻ Refresh</button>
+      </div>
+      <div id="hodContent">
+        <div class="loading-spinner">
+          <div class="spinner"></div>
+          <p>Loading Hadith...</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLLECTIONS SECTION -->
+    <h2 class="section-title">📚 Browse Collections</h2>
+
+    <!-- COLLECTION SELECTOR -->
+    <div class="collection-tabs" id="collectionTabs">
+      <button class="tab-btn active" onclick="selectCollection('bukhari', this)">Sahih Bukhari</button>
+      <button class="tab-btn" onclick="selectCollection('muslim', this)">Sahih Muslim</button>
+      <button class="tab-btn" onclick="selectCollection('abudawud', this)">Abu Dawud</button>
+      <button class="tab-btn" onclick="selectCollection('tirmidhi', this)">Tirmidhi</button>
+      <button class="tab-btn" onclick="selectCollection('nasai', this)">An-Nasa'i</button>
+      <button class="tab-btn" onclick="selectCollection('ibnmajah', this)">Ibn Majah</button>
+    </div>
+
+    <!-- HADITH LIST -->
+    <div id="hadithList">
+      <div class="loading-spinner">
+        <div class="spinner"></div>
+        <p>Loading Hadiths...</p>
+      </div>
+    </div>
+
+    <!-- PAGINATION -->
+    <div class="pagination" id="pagination" style="display:none;">
+      <button onclick="prevPage()" id="prevPageBtn">◀ Previous</button>
+      <span id="pageInfo">Page 1</span>
+      <button onclick="nextPage()" id="nextPageBtn">Next ▶</button>
+    </div>
+
+  </div>
+
+  <footer class="footer">
+    <p>MyMuslimCompanion &copy; 2026 — Made with ♥ by Izz Ismail</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/hadith.js"></script>
+</body>
+</html>
