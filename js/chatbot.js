@@ -3,8 +3,8 @@
 // Uses: Groq API (free, fast)
 // ===========================
 
-// ⚠️ IMPORTANT: Paste your Groq API key below
-const GROQ_API_KEY = 'MY GROQ API KEY';
+// Paste your Groq API key below
+const GROQ_API_KEY = 'Place api key';
 
 const GROQ_URL = 'https://api.groq.com/openai/v1/chat/completions';
 

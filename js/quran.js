@@ -40,15 +40,22 @@ function renderSurahGrid(surahs) {
   }
 
   grid.innerHTML = surahs.map(s => `
-    <div class="surah-card" onclick="openSurah(${s.number})">
-      <div class="surah-number">${s.number}</div>
-      <div class="surah-info">
+    <div class="surah-card">
+      <div class="surah-number" onclick="openSurah(${s.number})">${s.number}</div>
+      <div class="surah-info" onclick="openSurah(${s.number})">
         <div class="surah-name-en">${s.englishName}</div>
         <div class="surah-name-ar">${s.name}</div>
         <div class="surah-meta">${s.englishNameTranslation} · ${s.numberOfAyahs} verses · ${s.revelationType}</div>
       </div>
+      <button class="bookmark-btn" data-surah-number="${s.number}"
+        onclick="toggleBookmark(${s.number}, '${s.englishName}')">
+        ☆ Bookmark
+      </button>
     </div>
   `).join('');
+
+  // Refresh bookmark UI to show correct state
+  if (typeof refreshBookmarkUI === 'function') refreshBookmarkUI();
 }
 
 // ===========================
@@ -117,8 +124,29 @@ async function openSurah(surahNumber) {
         <span class="verse-number-badge">Verse ${ayah.numberInSurah}</span>
         <div class="verse-arabic">${ayah.text}</div>
         <div class="verse-english">${englishAyahs[i]?.text || ''}</div>
+        <button class="bookmark-btn"
+          data-surah-number="${surah.number}"
+          data-verse-number="${ayah.numberInSurah}"
+          data-surah-name="${surah.englishName}"
+          data-verse-text="${ayah.text.replace(/"/g, '')}">
+          ☆ Save Verse
+        </button>
       </div>
     `).join('');
+    
+    // Add click events for verse bookmarks
+    document.querySelectorAll('.bookmark-btn[data-verse-number]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const surahNum  = parseInt(btn.dataset.surahNumber);
+        const surahName = btn.dataset.surahName;
+        const verseNum  = parseInt(btn.dataset.verseNumber);
+        const verseText = btn.dataset.verseText;
+        toggleBookmark(surahNum, surahName, verseNum, verseText);
+      });
+    });
+
+    // Refresh bookmark icons
+    if (typeof refreshBookmarkUI === 'function') refreshBookmarkUI();
 
   } catch (err) {
     document.getElementById('versesContainer').innerHTML = `
