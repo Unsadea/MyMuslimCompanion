@@ -1,0 +1,363 @@
+/* ===========================
+   BOOKMARKS PAGE STYLES
+   =========================== */
+
+.bookmarks-main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+  min-height: 70vh;
+}
+
+/* ===========================
+   PAGE HEADER
+   =========================== */
+.bookmarks-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 2rem 0 1.5rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.bookmarks-header h1 {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.bookmarks-header p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* ===========================
+   LOGIN PROMPT
+   =========================== */
+.bookmarks-login-prompt {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.login-prompt-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.bookmarks-login-prompt h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.bookmarks-login-prompt p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.prompt-login-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-right: 0.75rem;
+}
+
+.prompt-login-btn:hover {
+  background: var(--primary-light);
+}
+
+.prompt-register-btn {
+  background: none;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.prompt-register-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+/* ===========================
+   LOADING
+   =========================== */
+.bookmarks-loading {
+  text-align: center;
+  padding: 4rem 2rem;
+  color: var(--text-muted);
+}
+
+.bookmarks-loading .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ===========================
+   EMPTY STATE
+   =========================== */
+.bookmarks-empty {
+  text-align: center;
+  padding: 4rem 2rem;
+}
+
+.empty-icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.bookmarks-empty h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.75rem;
+}
+
+.bookmarks-empty p {
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.go-quran-btn {
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+  display: inline-block;
+}
+
+.go-quran-btn:hover {
+  background: var(--primary-light);
+}
+
+/* ===========================
+   SECTIONS
+   =========================== */
+.bookmarks-section {
+  margin-bottom: 2.5rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--border);
+}
+
+.section-header h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text);
+}
+
+.section-count {
+  background: var(--primary);
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 20px;
+}
+
+/* ===========================
+   SURAH BOOKMARKS GRID
+   =========================== */
+.surah-bookmarks-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.surah-bookmark-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 1.1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.surah-bookmark-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(27,107,58,0.15);
+}
+
+.surah-bookmark-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.surah-bookmark-name {
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 0.2rem;
+}
+
+.surah-bookmark-arabic {
+  font-family: 'Amiri', serif;
+  font-size: 1.1rem;
+  color: var(--primary);
+  direction: rtl;
+  margin-bottom: 0.6rem;
+}
+
+.surah-bookmark-remove {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  background: none;
+  border: none;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--text-muted);
+  opacity: 0;
+  transition: opacity 0.2s, color 0.2s;
+  padding: 0.2rem;
+}
+
+.surah-bookmark-card:hover .surah-bookmark-remove {
+  opacity: 1;
+}
+
+.surah-bookmark-remove:hover {
+  color: #e53e3e;
+}
+
+/* ===========================
+   VERSE BOOKMARKS LIST
+   =========================== */
+.verse-bookmarks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.verse-bookmark-card {
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  border-radius: 14px;
+  padding: 1.25rem 1.5rem;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.verse-bookmark-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 16px rgba(201,168,76,0.12);
+}
+
+.verse-bookmark-meta {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.verse-bookmark-arabic {
+  font-family: 'Amiri', serif;
+  font-size: 1.4rem;
+  color: var(--text);
+  direction: rtl;
+  text-align: right;
+  line-height: 2;
+  margin-bottom: 0.75rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.verse-bookmark-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.verse-bookmark-open {
+  background: none;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 0.35rem 0.9rem;
+  border-radius: 8px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.verse-bookmark-open:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.verse-bookmark-remove {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding: 0.35rem 0.5rem;
+}
+
+.verse-bookmark-remove:hover {
+  color: #e53e3e;
+}
+
+/* ===========================
+   RESPONSIVE
+   =========================== */
+@media (max-width: 600px) {
+  .bookmarks-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .surah-bookmarks-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .prompt-login-btn,
+  .prompt-register-btn {
+    display: block;
+    width: 100%;
+    margin: 0.4rem 0;
+  }
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Bookmarks — MyMuslimCompanion</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/bookmarks.css" />
+  <link rel="stylesheet" href="css/feedback.css" />
+  <link rel="stylesheet" href="css/auth.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="/MyMuslimCompanion/index.html" class="nav-brand">
+      <span class="brand-icon">☽</span>
+      <span class="brand-name">MyMuslimCompanion</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/MyMuslimCompanion/index.html">Home</a></li>
+      <li><a href="/MyMuslimCompanion/quran.html">Qur'an</a></li>
+      <li><a href="/MyMuslimCompanion/hadith.html">Hadith</a></li>
+      <li><a href="/MyMuslimCompanion/mosque.html">Mosque Finder</a></li>
+      <li><a href="/MyMuslimCompanion/prayer.html">Prayer Times</a></li>
+      <li><a href="/MyMuslimCompanion/chatbot.html">AI Chatbot</a></li>
+      <li><a href="/MyMuslimCompanion/bookmarks.html" class="active">Bookmarks</a></li>
+    </ul>
+    <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark/light mode">
+      <span class="theme-icon">🌙</span>
+    </button>
+    <button class="hamburger" onclick="toggleMenu()">&#9776;</button>
+  </nav>
+
+  <!-- MOBILE MENU -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="/MyMuslimCompanion/index.html">Home</a>
+    <a href="/MyMuslimCompanion/quran.html">Qur'an</a>
+    <a href="/MyMuslimCompanion/hadith.html">Hadith</a>
+    <a href="/MyMuslimCompanion/mosque.html">Mosque Finder</a>
+    <a href="/MyMuslimCompanion/prayer.html">Prayer Times</a>
+    <a href="/MyMuslimCompanion/chatbot.html">AI Chatbot</a>
+    <a href="/MyMuslimCompanion/bookmarks.html">Bookmarks</a>
+  </div>
+  <!-- MAIN CONTENT -->
+  <main class="bookmarks-main">
+
+    <!-- PAGE HEADER -->
+    <div class="bookmarks-header">
+      <h1>⭐ My Bookmarks</h1>
+      <p>Your saved Surahs and verses in one place</p>
+    </div>
+
+    <!-- NOT LOGGED IN STATE -->
+    <div class="bookmarks-login-prompt" id="bookmarksLoginPrompt" style="display:none;">
+      <div class="login-prompt-icon">🔒</div>
+      <h2>Login to see your bookmarks</h2>
+      <p>You need to be logged in to view and manage your saved Surahs and verses.</p>
+      <button class="prompt-login-btn" onclick="openAuthModal('login')">Login</button>
+      <button class="prompt-register-btn" onclick="openAuthModal('register')">Create Account</button>
+    </div>
+
+    <!-- LOADING STATE -->
+    <div class="bookmarks-loading" id="bookmarksLoading" style="display:none;">
+      <div class="spinner"></div>
+      <p>Loading your bookmarks...</p>
+    </div>
+
+    <!-- EMPTY STATE -->
+    <div class="bookmarks-empty" id="bookmarksEmpty" style="display:none;">
+      <div class="empty-icon">📖</div>
+      <h2>No bookmarks yet</h2>
+      <p>Start reading the Qur'an and save your favourite Surahs and verses!</p>
+      <a href="/MyMuslimCompanion/quran.html" class="go-quran-btn">Open Qur'an →</a>
+    </div>
+
+    <!-- BOOKMARKS CONTENT -->
+    <div class="bookmarks-content" id="bookmarksContent" style="display:none;">
+
+      <!-- SURAH BOOKMARKS -->
+      <section class="bookmarks-section" id="surahBookmarksSection">
+        <div class="section-header">
+          <h2>📖 Saved Surahs</h2>
+          <span class="section-count" id="surahCount">0</span>
+        </div>
+        <div class="surah-bookmarks-grid" id="surahBookmarksGrid"></div>
+      </section>
+
+      <!-- VERSE BOOKMARKS -->
+      <section class="bookmarks-section" id="verseBookmarksSection">
+        <div class="section-header">
+          <h2>✨ Saved Verses</h2>
+          <span class="section-count" id="verseCount">0</span>
+        </div>
+        <div class="verse-bookmarks-list" id="verseBookmarksList"></div>
+      </section>
+
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>MyMuslimCompanion &copy; 2025 · Made by Izz Ismail</p>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/feedback.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/bookmarks.js"></script>
+
+</body>
+</html>

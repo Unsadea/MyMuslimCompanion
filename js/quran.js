@@ -11,7 +11,26 @@ let currentSurahNumber = 1;
 // LOAD ALL SURAHS ON PAGE LOAD
 // ===========================
 window.addEventListener('DOMContentLoaded', () => {
-  loadSurahList();
+  loadSurahList().then(() => {
+    // Check if a surah number was passed in the URL
+    const params = new URLSearchParams(window.location.search);
+    const surahNum = parseInt(params.get('surah'));
+    if (surahNum >= 1 && surahNum <= 114) {
+  const verseNum = parseInt(params.get('verse'));
+  openSurah(surahNum).then(() => {
+    if (verseNum) {
+      // Find the verse badge and scroll to it
+      const verseBadges = document.querySelectorAll('.verse-number-badge');
+      verseBadges.forEach(badge => {
+        if (badge.textContent.trim() === `Verse ${verseNum}`) {
+          badge.closest('.verse-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+          badge.closest('.verse-card').style.border = '2px solid var(--accent)';
+        }
+      });
+    }
+  });
+}
+  });
 });
 
 async function loadSurahList() {
@@ -154,6 +173,8 @@ async function openSurah(surahNumber) {
 
     // Refresh bookmark icons
     if (typeof refreshBookmarkUI === 'function') refreshBookmarkUI();
+
+    return Promise.resolve();
 
   } catch (err) {
     document.getElementById('versesContainer').innerHTML = `
