@@ -119,10 +119,17 @@ async function openSurah(surahNumber) {
     document.getElementById('nextBtn').disabled = surahNumber >= 114;
 
     // Render verses
-    document.getElementById('versesContainer').innerHTML = surah.ayahs.map((ayah, i) => `
+    document.getElementById('versesContainer').innerHTML = surah.ayahs.map((ayah, i) => {
+      let arabicText = ayah.text;
+      // Remove Bismillah from first verse (already shown separately above)
+      // Skip Surah Al-Fatiha (1) where Bismillah IS the verse, and At-Tawbah (9) which has none
+      if (ayah.numberInSurah === 1 && surahNumber !== 1 && surahNumber !== 9) {
+        arabicText = arabicText.substring(40).trim();
+      }
+      return `
       <div class="verse-card">
         <span class="verse-number-badge">Verse ${ayah.numberInSurah}</span>
-        <div class="verse-arabic">${ayah.text}</div>
+        <div class="verse-arabic">${arabicText}</div>
         <div class="verse-english">${englishAyahs[i]?.text || ''}</div>
         <button class="bookmark-btn"
           data-surah-number="${surah.number}"
@@ -132,7 +139,7 @@ async function openSurah(surahNumber) {
           ☆ Save Verse
         </button>
       </div>
-    `).join('');
+    `}).join('');
     
     // Add click events for verse bookmarks
     document.querySelectorAll('.bookmark-btn[data-verse-number]').forEach(btn => {
