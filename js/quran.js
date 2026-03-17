@@ -67,7 +67,7 @@ function renderSurahGrid(surahs) {
         <div class="surah-meta">${s.englishNameTranslation} · ${s.numberOfAyahs} verses · ${s.revelationType}</div>
       </div>
       <button class="bookmark-btn" data-surah-number="${s.number}"
-        onclick="toggleBookmark(${s.number}, '${s.englishName}')">
+        onclick="toggleBookmark(${s.number}, '${s.englishName.replace(/'/g, "\\'")}')"
         ☆ Bookmark
       </button>
     </div>
@@ -153,8 +153,8 @@ async function openSurah(surahNumber) {
         <button class="bookmark-btn"
           data-surah-number="${surah.number}"
           data-verse-number="${ayah.numberInSurah}"
-          data-surah-name="${surah.englishName}"
-          data-verse-text="${ayah.text.replace(/"/g, '')}">
+          data-surah-name="${surah.englishName.replace(/'/g, '&#39;').replace(/"/g, '&quot;')}"
+          data-verse-text="${encodeURIComponent(ayah.text)}"
           ☆ Save Verse
         </button>
       </div>
@@ -166,7 +166,7 @@ async function openSurah(surahNumber) {
         const surahNum  = parseInt(btn.dataset.surahNumber);
         const surahName = btn.dataset.surahName;
         const verseNum  = parseInt(btn.dataset.verseNumber);
-        const verseText = btn.dataset.verseText;
+        const verseText = decodeURIComponent(btn.dataset.verseText);
         toggleBookmark(surahNum, surahName, verseNum, verseText);
       });
     });
