@@ -25,6 +25,13 @@ If a question is not related to Islam, politely say:
 Always be respectful, accurate, and cite Islamic sources when possible.
 Keep responses clear and easy to understand.`;
 
+// Clear autofill
+document.addEventListener('DOMContentLoaded', () => {
+  setTimeout(() => {
+    document.getElementById('userInput').value = '';
+  }, 100);
+});
+
 // ===========================
 // SEND MESSAGE
 // ===========================

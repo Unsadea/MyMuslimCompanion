@@ -11,7 +11,13 @@ let currentSurahNumber = 1;
 // LOAD ALL SURAHS ON PAGE LOAD
 // ===========================
 window.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('searchInput').value = '';
+  setTimeout(() => {
+    document.getElementById('searchInput').value = '';
+    filterSurahs();
+  }, 100);
   loadSurahList().then(() => {
+    // rest of your existing code stays the same
     // Check if a surah number was passed in the URL
     const params = new URLSearchParams(window.location.search);
     const surahNum = parseInt(params.get('surah'));

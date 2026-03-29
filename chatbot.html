@@ -74,12 +74,7 @@
 
     <!-- INPUT BAR -->
     <div class="chat-input-bar">
-      <input
-        type="text"
-        id="userInput"
-        placeholder="Ask an Islamic question..."
-        onkeydown="if(event.key==='Enter') sendMessage()"
-      />
+      <input type="search" id="userInput" placeholder="Ask an Islamic question..." onkeydown="if(event.key==='Enter') sendMessage()" autocomplete="off" />
       <button class="send-btn" onclick="sendMessage()" id="sendBtn">Send ➤</button>
     </div>
 
